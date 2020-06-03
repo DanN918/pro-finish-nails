@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function about () {
-    return(
-        <div>
-            <h1>This is the about page</h1>
-            </div>
-    )
-};
+function about() {
+  return (
+    <div>
+      <h1>About Us</h1>
+    </div>
+  );
+}
 
 export default about;
