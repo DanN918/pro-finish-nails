@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 
-function about() {
+const About = (props) =>{
   return (
     <div>
       <h1>About Us</h1>
@@ -8,4 +8,4 @@ function about() {
   );
 }
 
-export default about;
+export default About;

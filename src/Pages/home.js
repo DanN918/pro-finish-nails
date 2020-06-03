@@ -1,26 +1,15 @@
 import React, { useState } from "react";
 
-//makes the image fade in
-//import ImageFadeIn from "react-image-fade-in";
-
 import ImgSlideshow from "./../Components/ImgSlideshow/imgslideshow";
+
+import Slideshow from "./../Components/InfoSlideshow/slideshow";
 
 import "./home.css";
 
 const Home = (props) => {
   return (
-    /**Slideshow portion of homepage */
     <>
-      {/*Slideshow of nail related images */}
-      {/* <div>
-        <ImageFadeIn
-          src={nailInterior}
-          opacityTransition="4.5"
-          alt="nail interior design"
-          className="main-photo"
-        />
-      </div> */}
-
+      {/**Slideshow portion of homepage */}
       <div>
         <ImgSlideshow />
       </div>
@@ -36,6 +25,10 @@ const Home = (props) => {
           happy to serve you and strive to maximize your comfort during your
           stay!
         </p>
+      </div>
+
+      <div>
+        <Slideshow />
       </div>
     </>
   );

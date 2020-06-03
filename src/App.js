@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import NavHeader from "./Components/Header/navHeader";
 
+import Footer from './Components/Footer/footer';
+
 import Home from "./Pages/home";
 import About from "./Pages/about";
 import Contact from "./Pages/contact";
@@ -32,6 +34,8 @@ function App() {
 
 
           </Switch>
+
+          <Footer/>
         </div>
       </div>
     </Router>
