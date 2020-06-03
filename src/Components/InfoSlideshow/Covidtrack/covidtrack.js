@@ -11,10 +11,12 @@ import axios from 'axios';
 
  const url = 'https://api.covid19api.com/summary';
 const Covidtrack = (props) => {
-    const [isLoading, setIsLoading] = useState(true);
-    componentDidMount () {  
-        axios.get(url);
-    }
+    const[count, setCount] = useState(0); 
+    useEffect(async () => {
+        const response = await fetch (url);
+        const data = await response.json();
+        const [item] = data.results;
+    })
     
     return (
         <div>
