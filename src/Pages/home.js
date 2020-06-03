@@ -6,6 +6,12 @@ import Slideshow from "./../Components/InfoSlideshow/slideshow";
 
 import "./home.css";
 
+/**
+ * TODO:
+ * Finsih slideshow
+ * Perhaps add live world map
+ *  
+ */
 const Home = (props) => {
   return (
     <>
