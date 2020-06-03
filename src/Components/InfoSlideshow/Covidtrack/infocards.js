@@ -14,11 +14,13 @@ import Maryland from "./../../../Images/maryland.png";
 import US from "./../../../Images/united states.png";
 import World from "./../../../Images/world clipart.jpg";
 
-const url = "https://corona.lmao.ninja/v2/all";
+const url = "https://corona.lmao.ninja/v2";
 
 /**
  * Creates card to showcase covid cases in maryland, united states, and world
  * In geoInfo, import data from covid track to put into card body
+ * 
+ * Possibly add search feature to get info for a specific state
  */
 
 const createCardItem = ({ src, alt, title, cases, deaths, tests }) => (
@@ -40,13 +42,35 @@ const createCardItem = ({ src, alt, title, cases, deaths, tests }) => (
 
 const Infocard = (props) => {
   const [latest, setLatest] = useState("");
+  const [latestLocal, setLatestLocal] = useState("");
+  const [latestNational, setLatestNational] = useState("");
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(`${url}/all`)
       .then((res) => {
         console.log(res.data);
         setLatest(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      axios
+      .get(`${url}/states/maryland`)
+      .then((res) => {
+        console.log(res.data);
+        setLatestLocal(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+      axios
+      .get(`${url}/countries/usa`)
+      .then((res) => {
+        console.log(res.data);
+        setLatestNational(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -58,17 +82,17 @@ const Infocard = (props) => {
       src: Maryland,
       alt: "maryland art",
       title: "Maryland",
-      cases: latest.cases,
-      deaths: "2",
-      tests: "2",
+      cases: latestLocal.cases,
+      deaths: latestLocal.deaths,
+      tests: latestLocal.tests,
     },
     {
       src: US,
       alt: "unites states art",
       title: "United States",
-      cases: latest.cases,
-      deaths: "2",
-      tests: "2",
+      cases: latestNational.cases,
+      deaths: latestNational.deaths,
+      tests: latestNational.tests,
     },
     {
       src: World,
