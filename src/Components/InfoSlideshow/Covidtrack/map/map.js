@@ -1,47 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import L from "leaflet";
+import React, {useState} from "react";
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Icon } from "leaflet";
+import * as parkData from "./skateboard-parks.json";
+import "./map.css";
 
-const style = {
-  width: "100px",
-  height: "100px"
-};
-
-const Map = ({ markersData }) => {
-  // create map
-  const mapRef = useRef(null);
-  useEffect(() => {
-    mapRef.current = L.map("map", {
-      center: [49.8419, 24.0315],
-      zoom: 2,
-      layers: [
-        L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-          attribution:
-            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        })
-      ]
-    });
-  }, []);
-
-  // add layer
-  const layerRef = useRef(null);
-  useEffect(() => {
-    layerRef.current = L.layerGroup().addTo(mapRef.current);
-  }, []);
-
-  // update markers
-  useEffect(
-    () => {
-      layerRef.current.clearLayers();
-      markersData.forEach(marker => {
-        L.marker(marker.latLng, { title: marker.title }).addTo(
-          layerRef.current
-        );
-      });
-    },
-    [markersData]
+const IntegratedMap = (props)=> {
+  return (
+    <Map center={[45.4, -75.7]} zoom={12}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      />
+    </Map>
   );
-
-  return <div id="map" style={style} />;
 }
 
-export default Map;
+export default IntegratedMap;

@@ -8,7 +8,7 @@ import "./home.css";
 
 import Booking from "./booking";
 
-import IndexMap from "./../Components/InfoSlideshow/Covidtrack/map/index";
+import IntegratedMap from "./../Components/InfoSlideshow/Covidtrack/map/map";
 
 //import Services from "./services";
 /**
@@ -40,9 +40,8 @@ const Home = (props) => {
 
       <div>
         <Slideshow />
-        <div className ="map">
-          <IndexMap />
-        </div>
+          <IntegratedMap />
+
       </div>
       <div>
         <Booking />
