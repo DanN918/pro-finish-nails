@@ -1,6 +1,15 @@
 .setAppoint {
-    margin-top: 10%;
+    margin-top: 2%;
     margin-left: 20%;
     margin-bottom: 10%;
 
 }
+
+h2 {
+    text-align: center;
+}
+
+.container {
+    margin-top: 8%;
+}
+

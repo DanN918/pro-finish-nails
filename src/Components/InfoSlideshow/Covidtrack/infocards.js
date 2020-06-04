@@ -14,30 +14,50 @@ import Maryland from "./../../../Images/maryland.png";
 import US from "./../../../Images/united states.png";
 import World from "./../../../Images/world clipart.jpg";
 
-import './infocards.css';
+import "./infocards.css";
+
 
 const url = "https://corona.lmao.ninja/v2";
 
 /**
  * Creates card to showcase covid cases in maryland, united states, and world
  * In geoInfo, import data from covid track to put into card body
- * 
+ *
  * Possibly add search feature to get info for a specific state
- * 
+ *
  * Possibly add howard county
  */
 
-const createCardItem = ({ src, alt, title, cases, deaths, tests }) => (
+const createCardItem = ({
+  src,
+  alt,
+  title,
+  cases,
+  todayCases,
+  deaths,
+  todayDeaths,
+  tests,
+  recovered,
+}) => (
   <Col>
     <Card>
-      <img src={src} alt={alt} width="150px" height="150px" className='cardImg'/>
+      <img
+        src={src}
+        alt={alt}
+        width="150px"
+        height="150px"
+        className="cardImg"
+      />
       <CardBody>
         <CardTitle>
           <h3 align="center">{title}</h3>
         </CardTitle>
         <CardText>Cases: {cases}</CardText>
+        <CardText>Today Cases: {todayCases}</CardText>
         <CardText>Deaths: {deaths}</CardText>
+        <CardText>Today Deaths: {todayDeaths}</CardText>
         <CardText>Tests: {tests}</CardText>
+        <CardText>Recovered: {recovered}</CardText>
         <CardFooter>Last Updated: </CardFooter>
       </CardBody>
     </Card>
@@ -60,7 +80,7 @@ const Infocard = (props) => {
         console.log(err);
       });
 
-      axios
+    axios
       .get(`${url}/states/maryland`)
       .then((res) => {
         console.log(res.data);
@@ -70,7 +90,7 @@ const Infocard = (props) => {
         console.log(err);
       });
 
-      axios
+    axios
       .get(`${url}/countries/usa`)
       .then((res) => {
         console.log(res.data);
@@ -87,24 +107,33 @@ const Infocard = (props) => {
       alt: "maryland art",
       title: "Maryland",
       cases: latestLocal.cases,
+      todayCases: latestLocal.todayCases,
       deaths: latestLocal.deaths,
+      todayDeaths: latestLocal.todayDeaths,
       tests: latestLocal.tests,
+      recovered: "N/A",
     },
     {
       src: US,
       alt: "unites states art",
       title: "United States",
       cases: latestNational.cases,
+      todayCases: latestNational.todayCases,
       deaths: latestNational.deaths,
+      todayDeaths: latestNational.todayDeaths,
       tests: latestNational.tests,
+      recovered: latestNational.recovered,
     },
     {
       src: World,
       alt: "world clipart.jpg",
       title: "World",
       cases: latest.cases,
+      todayCases: latest.todayCases,
       deaths: latest.deaths,
+      todayDeaths: latest.todayDeaths,
       tests: latest.tests,
+      recovered: latest.recovered,
     },
   ];
 

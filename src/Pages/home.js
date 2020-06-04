@@ -6,8 +6,11 @@ import Slideshow from "./../Components/InfoSlideshow/slideshow";
 
 import "./home.css";
 
-import Booking from './booking';
+import Booking from "./booking";
 
+import IndexMap from "./../Components/InfoSlideshow/Covidtrack/map/index";
+
+//import Services from "./services";
 /**
  * TODO:
  * Finsih slideshow
@@ -37,10 +40,16 @@ const Home = (props) => {
 
       <div>
         <Slideshow />
+        <div className ="map">
+          <IndexMap />
+        </div>
       </div>
       <div>
-        <Booking/>
+        <Booking />
       </div>
+      {/* <div>
+        <Services />
+      </div> */}
     </>
   );
 };
