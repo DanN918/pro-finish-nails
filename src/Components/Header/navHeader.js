@@ -8,6 +8,8 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+
+
 import "./header.css";
 
 //navigation bar created here. Shows up on all pages and is fixed. Created using Reactstrap
@@ -46,7 +48,7 @@ const NavHeader = (props) => {
 //creates the links or NavLinks to other pages
 const createNavItem = ({ href, text }) => (
   <NavItem>
-    <NavLink href={href} className ='link-custom'>{text}</NavLink>
+    <NavLink href={href} className ='link-custom' exact>{text}</NavLink>
   </NavItem>
 );
 

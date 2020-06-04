@@ -14,6 +14,8 @@ import Maryland from "./../../../Images/maryland.png";
 import US from "./../../../Images/united states.png";
 import World from "./../../../Images/world clipart.jpg";
 
+import './infocards.css';
+
 const url = "https://corona.lmao.ninja/v2";
 
 /**
@@ -21,12 +23,14 @@ const url = "https://corona.lmao.ninja/v2";
  * In geoInfo, import data from covid track to put into card body
  * 
  * Possibly add search feature to get info for a specific state
+ * 
+ * Possibly add howard county
  */
 
 const createCardItem = ({ src, alt, title, cases, deaths, tests }) => (
   <Col>
     <Card>
-      <img src={src} alt={alt} width="150px" height="150px" />
+      <img src={src} alt={alt} width="150px" height="150px" className='cardImg'/>
       <CardBody>
         <CardTitle>
           <h3 align="center">{title}</h3>
@@ -34,7 +38,7 @@ const createCardItem = ({ src, alt, title, cases, deaths, tests }) => (
         <CardText>Cases: {cases}</CardText>
         <CardText>Deaths: {deaths}</CardText>
         <CardText>Tests: {tests}</CardText>
-        <CardFooter>Latest Updated: </CardFooter>
+        <CardFooter>Last Updated: </CardFooter>
       </CardBody>
     </Card>
   </Col>

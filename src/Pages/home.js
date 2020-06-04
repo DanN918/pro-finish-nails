@@ -6,11 +6,13 @@ import Slideshow from "./../Components/InfoSlideshow/slideshow";
 
 import "./home.css";
 
+import Booking from './booking';
+
 /**
  * TODO:
  * Finsih slideshow
  * Perhaps add live world map
- *  
+ *
  */
 const Home = (props) => {
   return (
@@ -35,6 +37,9 @@ const Home = (props) => {
 
       <div>
         <Slideshow />
+      </div>
+      <div>
+        <Booking/>
       </div>
     </>
   );
