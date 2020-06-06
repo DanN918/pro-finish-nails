@@ -1,12 +1,12 @@
 import React from "react";
 import { Jumbotron, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 import "./safetyMeasures.css";
 
-
 const webLinks = [
-    {href: 'https://www.cdc.gov/coronavirus/2019-ncov/index.html'},
-    {href: 'https://governor.maryland.gov/2020/06/03/governor-hogan-announces-beginning-of-stage-two-of-marylands-covid-19-recovery-safe-and-gradual-reopening-of-workplaces-and-businesses/'}
-]
+  "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
+  "https://governor.maryland.gov/2020/06/03/governor-hogan-announces-beginning-of-stage-two-of-marylands-covid-19-recovery-safe-and-gradual-reopening-of-workplaces-and-businesses/",
+];
 
 const SafetyMeasures = (props) => {
   return (
@@ -57,11 +57,15 @@ const SafetyMeasures = (props) => {
           However, we will be and remain at 50% capacity until ordered by Howard
           County or the state of Maryland permits us to increase capacity.
         </p>
-        <hr/>
+        <hr />
         <p>For more information:</p>
-        <br/>
-        <Button color='primary' size='lg' block href={webLinks[0]}>CDC COVID-19 Guidelines</Button>
-        <Button color='secondary' size='lg' block href={webLinks[1]}>Maryland COVID-19 Phase 2 Recovery</Button>
+        <br />
+        <Button color="primary" size="lg" block>
+          <a href={webLinks[0]}>CDC COVID-19 Guidelines</a>
+        </Button>
+        <Button color="secondary" size="lg" block>
+          <a href={webLinks[1]}>Maryland COVID-19 Phase 2 Recovery</a>
+        </Button>
       </Jumbotron>
     </div>
   );
