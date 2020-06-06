@@ -1,12 +1,33 @@
 import React, { useState } from "react";
 
-import { Navbar, NavbarBrand, NavItem, Nav } from "reactstrap";
+import { Navbar, NavbarBrand, NavItem, Nav, Table } from "reactstrap";
 
 /**TODO:
- * 
+ *
  * Fix positioning of items of footer
  * cooment on methods
  */
+
+const regHours = "10AM-8PM";
+
+const workSchedule = [
+  { Day: "Monday", Time: regHours },
+  { Day: "Tuesday", Time: regHours },
+  { Day: "Wednesday", Time: regHours },
+  { Day: "Thursday", Time: regHours },
+  { Day: "Friday", Time: regHours },
+  { Day: "Saturday", Time: "9AM-6PM " },
+  { Day: "Sunday", Time: "10AM-6PM" },
+];
+
+const tableHours = ({ Day, Time }) => {
+  return (
+    <tr>
+      <td>{Day}</td>
+      <td>{Time}</td>
+    </tr>
+  );
+};
 
 const Footer = (props) => {
   return (
@@ -30,16 +51,13 @@ const Footer = (props) => {
             </NavItem>
 
             <NavItem className="item">
-              <h3>Hours:</h3>
-              <p>
-                Monday: 10AM-8PM <br />
-                Tuesday: 10AM-8PM <br />
-                Wednesday: 10AM-8PM <br />
-                Thursday: 10AM-8PM <br />
-                Friday: 10AM-8PM <br />
-                Saturday: 10AM-8PM <br />
-                Sunday: 10AM-8PM <br />
-              </p>
+              <Table>
+                <thead>
+                  <th>Day</th>
+                  <th>Hours</th>
+                </thead>
+                <tbody>{workSchedule.map(tableHours)}</tbody>
+              </Table>
             </NavItem>
           </Nav>
         </Navbar>
