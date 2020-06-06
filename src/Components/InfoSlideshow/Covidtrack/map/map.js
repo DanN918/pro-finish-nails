@@ -7,7 +7,11 @@ import "./map.css";
 
 /**
  *  TODO: 
- *  
+ *  Right now, map marker data is taken from .json file that is up to date as of 6/5
+ *  Need to find way to updae from api directly
+ * 
+ *  Change color of marking depending on condition of number of cases/deaths
+ *  Change size depending on number of cases (like a heat map) 
  */
 
 
@@ -63,7 +67,14 @@ const IntegratedMap = (props) => {
           }}
         >
           <div>
-            <p>Cases: {countryPeek.cases}</p>
+            <p>
+              <u>Country Name:</u> {countryPeek.country} <br/>
+              Cases: {countryPeek.cases} <br/>
+              Deaths: {countryPeek.deaths} <br/>
+              Recovered: {countryPeek.recovered} <br/>
+              Tests: {countryPeek.tests}
+            
+            </p>
           </div>
         </Popup>
       )}

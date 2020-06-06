@@ -10,6 +10,8 @@ import Booking from "./booking";
 
 import IntegratedMap from "./../Components/InfoSlideshow/Covidtrack/map/map";
 
+import SafetyMeasures from "./../Components/InfoSlideshow/SafetyMeasures/safetyMeasures";
+
 //import Services from "./services";
 /**
  * TODO:
@@ -26,6 +28,7 @@ const Home = (props) => {
       </div>
       {/**Welcome Message */}
       <div className="welcome">
+        {/**Possibly put this into about.js */}
         <h1>Welcome to Pro Finish Nails!</h1>
         <br />
         <p>
@@ -37,11 +40,12 @@ const Home = (props) => {
           stay!
         </p>
       </div>
-
+      <div>
+        <SafetyMeasures />
+      </div>
       <div>
         <Slideshow />
-          <IntegratedMap />
-
+        <IntegratedMap />
       </div>
       <div>
         <Booking />
