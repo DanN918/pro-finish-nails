@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "./booking.css";
 
@@ -33,54 +33,74 @@ const servicesAvailable = [
   { name: "Nail Care Services" },
 ];
 
+const manicureServices = [
+  {name: ""}
+]
+
+// const useBooking = () => {
+//   const[costumerData, setCostumerData]=useState([]);
+//   useEffect(() => {
+//     firebase
+//       .firestore()
+//       .collection("booking")
+//       .onSnapshot((snapshot) => {
+//         debugger;
+//       });
+//   }, []);
+
+//   return consumerData;
+// }
+
 const Booking = (props) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
 
+  
+
   return (
     <>
-    <div className='container'>
-      <div>
-        <h2>Book an Appointment</h2>
-      </div>
-      <div className="setAppoint">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Row>
-            <Col>
-              <Card>
-                <CardTitle>Contact Information</CardTitle>
-                <label>
-                  First Name:
-                  <input name="firstname" ref={register} />
-                </label>
-                <label>
-                  Last Name:
-                  <input name="lastname" ref={register} />
-                </label>
-                <label>
-                  Email:
-                  <input name="email" ref={register} />
-                </label>
-                <label>
-                  Phone Number:
-                  <input name="email" ref={register} />
-                </label>
+      <div className="container">
+        <div>
+          <h2>Book an Appointment</h2>
+        </div>
+        <div className="setAppoint">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Row>
+              <Col>
                 <Card>
-                  <CardTitle>Choose Service(s)</CardTitle>
+                  <CardTitle>Contact Information</CardTitle>
+                  <label>
+                    First Name:
+                    <input name="firstname" ref={register} />
+                  </label>
+                  <label>
+                    Last Name:
+                    <input name="lastname" ref={register} />
+                  </label>
+                  <label>
+                    Email:
+                    <input name="email" ref={register} />
+                  </label>
+                  <label>
+                    Phone Number:
+                    <input name="email" ref={register} />
+                  </label>
+                  <Card>
+                    <CardTitle>Choose Service(s)</CardTitle>
+                  </Card>
                 </Card>
-              </Card>
-            </Col>
-            <Col>
-              <Card>
-                <CardTitle>Select Date and Time</CardTitle>
-                <DateSelector />
-              </Card>
-            </Col>
-            <input type="submit" />
-            {/**Find way to integrate date selector into form */}
-          </Row>
-        </form>
-      </div>
+              </Col>
+              <Col>
+                <Card>
+                  <CardTitle>Select Date and Time</CardTitle>
+                  <DateSelector />
+                </Card>
+              </Col>
+              <input type="submit" />
+              {/**Find way to integrate date selector into form */}
+            </Row>
+          </form>
+        </div>
       </div>
     </>
   );

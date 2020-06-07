@@ -68,7 +68,8 @@ const IntegratedMap = (props) => {
         >
           <div>
             <p>
-              <u>Country Name:</u> {countryPeek.country} <br/>
+              <b>{countryPeek.country}</b>
+              <hr/>
               Cases: {countryPeek.cases} <br/>
               Deaths: {countryPeek.deaths} <br/>
               Recovered: {countryPeek.recovered} <br/>

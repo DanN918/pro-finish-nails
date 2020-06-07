@@ -1,6 +1,5 @@
 import React from "react";
 import { Jumbotron, Button } from "reactstrap";
-import { Link } from "react-router-dom";
 import "./safetyMeasures.css";
 
 const webLinks = [
@@ -27,13 +26,16 @@ const SafetyMeasures = (props) => {
           <li>
             APPOINTMENTS ONLY - Must call in to schedule an appointment or book
             an appointment {/**Eventually add routing button here */} here
-            <li>
-              1 hour prior to your appointment, you will be notifed via phone
-              call. We ask that you wait inside your vehicle or outside before
-              your appointment time to ensure that staff have sufficient time to
-              sanitize the work station
-            </li>
+            <ul>
+              <li>
+                1 hour prior to your appointment, you will be notifed via phone
+                call. We ask that you wait inside your vehicle or outside before
+                your appointment time to ensure that staff have sufficient time
+                to sanitize the work station
+              </li>
+            </ul>
           </li>
+          <li>Temperature scans will be taken prior to your appointment</li>
           <li>
             Stations are ensured to be kept clean before and after each customer
           </li>
@@ -61,10 +63,14 @@ const SafetyMeasures = (props) => {
         <p>For more information:</p>
         <br />
         <Button color="primary" size="lg" block>
-          <a href={webLinks[0]}>CDC COVID-19 Guidelines</a>
+          <a href={webLinks[0]} className="links">
+            CDC COVID-19 Guidelines
+          </a>
         </Button>
         <Button color="secondary" size="lg" block>
-          <a href={webLinks[1]}>Maryland COVID-19 Phase 2 Recovery</a>
+          <a href={webLinks[1]} className="links">
+            Maryland COVID-19 Phase 2 Recovery
+          </a>
         </Button>
       </Jumbotron>
     </div>

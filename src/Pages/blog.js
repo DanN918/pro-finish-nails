@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
-function blog () {
-    return(
+
+const Blog = (props) => {
+
+  return (
+      <div className="container">
         <div>
-            <h1>This is blog page</h1>
-            </div>
-    )
+          <h2>Blog</h2>
+        </div>
+      </div>
+  );
 };
 
-export default blog;
+export default Blog;

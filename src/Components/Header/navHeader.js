@@ -17,9 +17,9 @@ import "./header.css";
 
 //map of all links/pages of application
 const links = [
-  { href: "/about", text: "About" },
-  { href: "/contact", text: "Contact" },
-  { href: "/services", text: "Services" },
+  // { href: "/about", text: "About" },
+  // { href: "/contact", text: "Contact" },
+  // { href: "/services", text: "Services" },
   { href: "/blog", text: "Blog" },
   { href: "/booking", text: "Booking" },
 ];

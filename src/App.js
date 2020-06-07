@@ -10,7 +10,7 @@ import About from "./Pages/redirects/about";
 import Contact from "./Pages/redirects/contact";
 import Services from "./Pages/services";
 import Booking from "./Pages/booking";
-import Blog from "./Pages/blog";
+import Blog from './Pages/blog';
 
 function App() {
   return (
@@ -20,11 +20,11 @@ function App() {
         <Switch>
           <Route path="/home" component={Home} />
 
-          <Route path="/about" component={About} />
+          {/* <Route path="/about" component={About} />
 
           <Route path="/contact" component={Contact} />
 
-          <Route path="/services" component={Services} />
+          <Route path="/services" component={Services} /> */}
 
           <Route path="/booking" component={Booking} />
 
