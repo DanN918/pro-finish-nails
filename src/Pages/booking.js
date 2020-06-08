@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
-import { Table } from "reactstrap";
+import { Table, FormGroup, Input, Label } from "reactstrap";
 
 import "./booking.css";
 
@@ -77,6 +77,9 @@ const waxService = [
 
 //   return consumerData;
 // }
+const createSelection = ({ name }) => {
+  return <option>{name}</option>;
+};
 
 const Booking = (props) => {
   const defaultValues = {
@@ -86,13 +89,33 @@ const Booking = (props) => {
     phone: "",
     comments: "",
   };
-
   const { handleSubmit, register, reset } = useForm({ defaultValues });
   const onSubmit = (data) => console.log(data);
-  const [data, setData] = useState(null);
 
-  const createOptions = ({ name }) => {
-    return <option ref={register}>{name}</option>;
+  // const [data, setData] = useState(null);
+
+  const [inputList, setInputList] = useState([]);
+
+  const clickHandler = (event) => {
+    // return (
+    //   <FormGroup>
+    //     <Input type="select" name="select" id="exampleSelect">
+    //       {servicesAvailable.map(createSelection)}
+    //     </Input>
+    //   </FormGroup>
+    // );
+
+    setInputList(
+      inputList.concat(
+        <div>
+          <FormGroup>
+            <Input type="select" name="select" id="exampleSelect">
+              {servicesAvailable.map(createSelection)}
+            </Input>
+          </FormGroup>
+        </div>
+      )
+    );
   };
 
   return (
@@ -143,9 +166,13 @@ const Booking = (props) => {
             </section>
 
             <section>
-              <label>Choose Service</label>
-              <select>{servicesAvailable.map(createOptions)}</select>
-              {/* <TextField/> */}
+              <div>
+                <Label>Choose Service</Label>
+                {inputList}
+                <button className="addBtn" onClick={clickHandler}>
+                  Add Service(s)
+                </button>
+              </div>
               <div className="textbox">
                 <TextField
                   id="outlined-textarea"
@@ -163,7 +190,9 @@ const Booking = (props) => {
               <DateSelector />
             </section>
             <section>
-              <input type="submit" className="submit" />
+              <button className=".addBtn" type="submit">
+                Submit
+              </button>
             </section>
           </div>
         </form>
