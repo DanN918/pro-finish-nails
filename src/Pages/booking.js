@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
+import TextField from "@material-ui/core/TextField";
+import { Table } from "reactstrap";
+
 import "./booking.css";
 
 import DateSelector from "../Components/Appointment/dateSelector";
@@ -9,6 +12,7 @@ import firebase from "./../firebase";
 /** TODO:
  * Create maps of services
  * Connect to firebase
+ * comment box
  */
 
 //testing firebase
@@ -20,6 +24,7 @@ import firebase from "./../firebase";
 //will use material ui here
 
 /**Place all services and subservices here */
+
 const servicesAvailable = [
   { name: "Manicure" },
   { name: "Pedicure" },
@@ -74,7 +79,15 @@ const waxService = [
 // }
 
 const Booking = (props) => {
-  const { handleSubmit, register, reset } = useForm();
+  const defaultValues = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    comments: "",
+  };
+
+  const { handleSubmit, register, reset } = useForm({ defaultValues });
   const onSubmit = (data) => console.log(data);
   const [data, setData] = useState(null);
 
@@ -85,40 +98,73 @@ const Booking = (props) => {
   return (
     <>
       <div className="setAppoint">
-        <form onSubmit={handleSubmit(onSubmit)} className='form'>
-          {/* <h2>Book an Appointment</h2> */}
-
-          <div className="container">
-
+        <h2>Book an Appointment</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="form">
+          <div className="containerForm">
             <section>
-              <label>
-                First Name:
-                <input name="firstname" ref={register} />
-              </label>
-              <label>
-                Last Name:
-                <input name="lastname" ref={register} />
-              </label>
-              <label>
-                Email:
-                <input name="email" ref={register} />
-              </label>
-              <label>
-                Phone Number:
-                <input name="email" ref={register} />
-              </label>
+              <label>Contact Information</label>
+              <Table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label>First Name:</label>
+                    </td>
+                    <td>
+                      <input name="firstname" ref={register} />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Last Name:</label>
+                    </td>
+                    <td>
+                      <input name="lastname" ref={register} />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Email:</label>
+                    </td>
+                    <td>
+                      {" "}
+                      <input name="email" ref={register} />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Phone Number:</label>
+                    </td>
+                    <td>
+                      <input name="phone" ref={register} />
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
             </section>
 
             <section>
               <label>Choose Service</label>
               <select>{servicesAvailable.map(createOptions)}</select>
+              {/* <TextField/> */}
+              <div className="textbox">
+                <TextField
+                  id="outlined-textarea"
+                  label="Additional Comments"
+                  name="comments"
+                  placeholder="Add comments"
+                  multiline
+                  variant="outlined"
+                  ref={register}
+                />
+              </div>
             </section>
 
             <section>
               <DateSelector />
             </section>
-
-            <input type="submit" width='50px'/>
+            <section>
+              <input type="submit" className="submit" />
+            </section>
           </div>
         </form>
       </div>

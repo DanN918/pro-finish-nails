@@ -1,4 +1,4 @@
-/* .setAppoint {
+.setAppoint {
     margin-top: 2%;
     margin-bottom: 10%;
 
@@ -6,14 +6,13 @@
 
 h2 {
     text-align: center;
-    color: black;
 }
 
-/* .container {
+.setAppoint {
     margin-top: 8%;
-} */
-/* 
-.container {
+} 
+ 
+.containerForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
@@ -35,13 +34,23 @@ section > label {
     box-sizing: border-box;
     width: 100%;
     border-radius: 4px;
-    border: 1px solid white;
+    border: 1px solid black;
     padding: 10px 15px;
     margin-bottom: 10px;
     font-size: 14px;
-  } */
+  }
 
   .form {
     max-width: 800px;
     margin: 0 auto;
+    border-color:  black;
   } 
+
+  .textbox {
+      margin-top: 5%;
+      width: 300px;
+  }
+
+  .submit {
+      width: 100px;
+  }
