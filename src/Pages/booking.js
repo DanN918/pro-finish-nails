@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import "./booking.css";
-
-import {
-  Card,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardFooter,
-  Row,
-  Col,
-} from "reactstrap";
 
 import DateSelector from "../Components/Appointment/dateSelector";
 
 import firebase from "./../firebase";
+
+/** TODO:
+ * Create maps of services
+ * Connect to firebase
+ */
 
 //testing firebase
 // firebase.firestore().collection('times').add({
@@ -24,6 +19,7 @@ import firebase from "./../firebase";
 
 //will use material ui here
 
+/**Place all services and subservices here */
 const servicesAvailable = [
   { name: "Manicure" },
   { name: "Pedicure" },
@@ -34,8 +30,34 @@ const servicesAvailable = [
 ];
 
 const manicureServices = [
-  {name: ""}
-]
+  { name: "Regular", price: "16" },
+  { name: "Manicure w/ French", price: "21" },
+  { name: "Gel Manicure", price: "32" },
+  { name: "With Remove", price: "34" },
+];
+
+const polishChange = [
+  { name: "Hand", price: "12" },
+  { name: "Feet", price: "14" },
+];
+
+const nailCareServices = [{ type: "Acrylic" }];
+
+const waxService = [
+  { name: "Eyebrow", price: "10" },
+  { name: "Upper Lip", price: "8" },
+  { name: "Lower Lip & Chin", price: "16" },
+  { name: "Eye, Lip & Chin", price: "25" },
+  { name: "Full face", price: "30" },
+  { name: "Underarms", price: "15" },
+  { name: "Half Arms", price: "20" },
+  { name: "Full Arms", price: "25" },
+  { name: "Bikini", price: "25" },
+  { name: "Half Legs", price: "25" },
+  { name: "Full Legs & Bikini", price: "70" },
+  { name: "Chest", price: "25" },
+  { name: "Back", price: "40" },
+];
 
 // const useBooking = () => {
 //   const[costumerData, setCostumerData]=useState([]);
@@ -52,55 +74,53 @@ const manicureServices = [
 // }
 
 const Booking = (props) => {
-  const { register, handleSubmit } = useForm();
+  const { handleSubmit, register, reset } = useForm();
   const onSubmit = (data) => console.log(data);
+  const [data, setData] = useState(null);
 
-  
+  const createOptions = ({ name }) => {
+    return <option ref={register}>{name}</option>;
+  };
 
   return (
     <>
-      <div className="container">
-        <div>
-          <h2>Book an Appointment</h2>
-        </div>
-        <div className="setAppoint">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Row>
-              <Col>
-                <Card>
-                  <CardTitle>Contact Information</CardTitle>
-                  <label>
-                    First Name:
-                    <input name="firstname" ref={register} />
-                  </label>
-                  <label>
-                    Last Name:
-                    <input name="lastname" ref={register} />
-                  </label>
-                  <label>
-                    Email:
-                    <input name="email" ref={register} />
-                  </label>
-                  <label>
-                    Phone Number:
-                    <input name="email" ref={register} />
-                  </label>
-                  <Card>
-                    <CardTitle>Choose Service(s)</CardTitle>
-                  </Card>
-                </Card>
-              </Col>
-              <Col>
-                <Card>
-                  <CardTitle>Select Date and Time</CardTitle>
-                  <DateSelector />
-                </Card>
-              </Col>
-              <input type="submit" />
-              {/**Find way to integrate date selector into form */}
-            </Row>
-          </form>
-        </div>
+      <div className="setAppoint">
+        <form onSubmit={handleSubmit(onSubmit)} className='form'>
+          {/* <h2>Book an Appointment</h2> */}
+
+          <div className="container">
+
+            <section>
+              <label>
+                First Name:
+                <input name="firstname" ref={register} />
+              </label>
+              <label>
+                Last Name:
+                <input name="lastname" ref={register} />
+              </label>
+              <label>
+                Email:
+                <input name="email" ref={register} />
+              </label>
+              <label>
+                Phone Number:
+                <input name="email" ref={register} />
+              </label>
+            </section>
+
+            <section>
+              <label>Choose Service</label>
+              <select>{servicesAvailable.map(createOptions)}</select>
+            </section>
+
+            <section>
+              <DateSelector />
+            </section>
+
+            <input type="submit" width='50px'/>
+          </div>
+        </form>
       </div>
     </>
   );

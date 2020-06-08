@@ -6,7 +6,7 @@ const Blog = (props) => {
   return (
       <div className="container">
         <div>
-          <h2>Blog</h2>
+          <h2>To be implemented soon...</h2>
         </div>
       </div>
   );
