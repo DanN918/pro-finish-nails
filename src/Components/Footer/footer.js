@@ -34,7 +34,7 @@ const tableHours = ({ Day, Time }) => {
 const Footer = (props) => {
   return (
     <>
-      <div className="spacing">
+      <div>
         <Navbar color="light" light relative="bottom" expand="md">
           <NavbarBrand href="/home"> Pro Finish Nails </NavbarBrand>
           <Nav navbar>

@@ -2,6 +2,14 @@ import React from "react";
 import { Jumbotron, Button } from "reactstrap";
 import "./safetyMeasures.css";
 
+/**
+ * Creates jumbotron component that displays current
+ * regulations on safe reopening for nail salons and 
+ * current policies for safety at work for both
+ * customer and employees.
+ */
+
+ //Links to cdc and md.gov for covid safety guidelines and nail shop reopening
 const webLinks = [
   "https://www.cdc.gov/coronavirus/2019-ncov/index.html",
   "https://governor.maryland.gov/2020/06/03/governor-hogan-announces-beginning-of-stage-two-of-marylands-covid-19-recovery-safe-and-gradual-reopening-of-workplaces-and-businesses/",
@@ -43,9 +51,6 @@ const SafetyMeasures = (props) => {
             Glass dividers have been purchased to reduce the likelihood of
             spreading the virus
           </li>
-          <li>
-            Security cameras in lieu of hate crimes against Asians and rioting
-          </li>
         </ul>
         <hr />
         <p>
@@ -60,6 +65,7 @@ const SafetyMeasures = (props) => {
           County or the state of Maryland permits us to increase capacity.
         </p>
         <hr />
+        {/**Creates button links for cdc and md.gov */}
         <p>For more information:</p>
         <br />
         <Button color="primary" size="lg" block>

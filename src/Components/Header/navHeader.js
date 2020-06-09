@@ -35,7 +35,7 @@ const NavHeader = (props) => {
     <>
       <div>
         <Navbar color="light" light fixed="top" className="navbar-custom">
-          <NavbarBrand href="/home" className = 'link-custom'>Pro Finish Nails</NavbarBrand>
+          <NavbarBrand href="/" className = 'link-custom'>Pro Finish Nails</NavbarBrand>
           {/* <NavItem className="modal"><Button color = "primary">Log In</Button></NavItem> */}
           <NavbarToggler onClick={toggleNavbar} />
           <Collapse isOpen={!collapsed} className="drop-color" navbar>

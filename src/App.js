@@ -18,7 +18,7 @@ function App() {
       <div>
         <NavHeader />
         <Switch>
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
 
           {/* <Route path="/about" component={About} />
 
@@ -26,9 +26,9 @@ function App() {
 
           <Route path="/services" component={Services} /> */}
 
-          <Route path="/booking" component={Booking} />
+          <Route exact path="/booking" component={Booking} />
 
-          <Route path="/blog" component={Blog} />
+          <Route exact path="/blog" component={Blog} />
         </Switch>
 
         <Footer />

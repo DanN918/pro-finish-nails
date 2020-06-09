@@ -1,5 +1,5 @@
 {
-  "homepage": "http://DanN918.github.io/{pro-finish-nails}",
+  "homepage": "http://DanN918.github.io/{pro-finish-nails}/",
   "name": "new-proj",
   "version": "0.1.0",
   "private": true,
@@ -17,7 +17,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "react-image-fade-in": "^1.1.1",
     "react-leaflet": "^2.7.0",
     "react-pdf": "^4.1.0",
     "react-redux": "^7.2.0",

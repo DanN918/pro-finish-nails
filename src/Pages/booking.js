@@ -26,6 +26,7 @@ import firebase from "./../firebase";
 /**Place all services and subservices here */
 
 const servicesAvailable = [
+  { name: "Select" },
   { name: "Manicure" },
   { name: "Pedicure" },
   { name: "Polish " },
@@ -34,35 +35,36 @@ const servicesAvailable = [
   { name: "Nail Care Services" },
 ];
 
-const manicureServices = [
-  { name: "Regular", price: "16" },
-  { name: "Manicure w/ French", price: "21" },
-  { name: "Gel Manicure", price: "32" },
-  { name: "With Remove", price: "34" },
-];
+{/**Will be implemented later as sub drop down menus */}
+// const manicureServices = [
+//   { name: "Regular", price: "16" },
+//   { name: "Manicure w/ French", price: "21" },
+//   { name: "Gel Manicure", price: "32" },
+//   { name: "With Remove", price: "34" },
+// ];
 
-const polishChange = [
-  { name: "Hand", price: "12" },
-  { name: "Feet", price: "14" },
-];
+// const polishChange = [
+//   { name: "Hand", price: "12" },
+//   { name: "Feet", price: "14" },
+// ];
 
-const nailCareServices = [{ type: "Acrylic" }];
+// const nailCareServices = [{ type: "Acrylic" }];
 
-const waxService = [
-  { name: "Eyebrow", price: "10" },
-  { name: "Upper Lip", price: "8" },
-  { name: "Lower Lip & Chin", price: "16" },
-  { name: "Eye, Lip & Chin", price: "25" },
-  { name: "Full face", price: "30" },
-  { name: "Underarms", price: "15" },
-  { name: "Half Arms", price: "20" },
-  { name: "Full Arms", price: "25" },
-  { name: "Bikini", price: "25" },
-  { name: "Half Legs", price: "25" },
-  { name: "Full Legs & Bikini", price: "70" },
-  { name: "Chest", price: "25" },
-  { name: "Back", price: "40" },
-];
+// const waxService = [
+//   { name: "Eyebrow", price: "10" },
+//   { name: "Upper Lip", price: "8" },
+//   { name: "Lower Lip & Chin", price: "16" },
+//   { name: "Eye, Lip & Chin", price: "25" },
+//   { name: "Full face", price: "30" },
+//   { name: "Underarms", price: "15" },
+//   { name: "Half Arms", price: "20" },
+//   { name: "Full Arms", price: "25" },
+//   { name: "Bikini", price: "25" },
+//   { name: "Half Legs", price: "25" },
+//   { name: "Full Legs & Bikini", price: "70" },
+//   { name: "Chest", price: "25" },
+//   { name: "Back", price: "40" },
+// ];
 
 // const useBooking = () => {
 //   const[costumerData, setCostumerData]=useState([]);
@@ -77,6 +79,7 @@ const waxService = [
 
 //   return consumerData;
 // }
+
 const createSelection = ({ name }) => {
   return <option>{name}</option>;
 };
@@ -89,22 +92,15 @@ const Booking = (props) => {
     phone: "",
     comments: "",
   };
+
   const { handleSubmit, register, reset } = useForm({ defaultValues });
   const onSubmit = (data) => console.log(data);
 
   // const [data, setData] = useState(null);
 
-  const [inputList, setInputList] = useState([]);
+  let [inputList, setInputList] = useState([]);
 
   const clickHandler = (event) => {
-    // return (
-    //   <FormGroup>
-    //     <Input type="select" name="select" id="exampleSelect">
-    //       {servicesAvailable.map(createSelection)}
-    //     </Input>
-    //   </FormGroup>
-    // );
-
     setInputList(
       inputList.concat(
         <div>
@@ -116,6 +112,14 @@ const Booking = (props) => {
         </div>
       )
     );
+  };
+
+  const clickHandlerDel = (event) => {
+    setInputList((inputList = []));
+  };
+
+  const onAlert = (event) => {
+    alert("Submit?");
   };
 
   return (
@@ -172,6 +176,9 @@ const Booking = (props) => {
                 <button className="addBtn" onClick={clickHandler}>
                   Add Service(s)
                 </button>
+                <button className="addBtn" onClick={clickHandlerDel}>
+                  Reset
+                </button>
               </div>
               <div className="textbox">
                 <TextField
@@ -190,7 +197,7 @@ const Booking = (props) => {
               <DateSelector />
             </section>
             <section>
-              <button className=".addBtn" type="submit">
+              <button className=".addBtn" type="submit" onClick={onAlert}>
                 Submit
               </button>
             </section>
