@@ -10,6 +10,7 @@ import {
   Button
 } from "reactstrap";
 
+import { Link } from 'react-router-dom';
 
 import "./header.css";
 
@@ -35,7 +36,7 @@ const NavHeader = (props) => {
     <>
       <div>
         <Navbar color="light" light fixed="top" className="navbar-custom">
-          <NavbarBrand href="/" className = 'link-custom'>Pro Finish Nails</NavbarBrand>
+          <NavbarBrand href="/home" className = 'link-custom'>Pro Finish Nails</NavbarBrand>
           {/* <NavItem className="modal"><Button color = "primary">Log In</Button></NavItem> */}
           <NavbarToggler onClick={toggleNavbar} />
           <Collapse isOpen={!collapsed} className="drop-color" navbar>
@@ -50,7 +51,7 @@ const NavHeader = (props) => {
 //creates the links or NavLinks to other pages
 const createNavItem = ({ href, text }) => (
   <NavItem>
-    <NavLink href={href} className ='link-custom' exact>{text}</NavLink>
+    <Link to={href} className ='link-custom' exact>{text}</Link>
   </NavItem>
 );
 

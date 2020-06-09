@@ -6,6 +6,7 @@ import { Table, FormGroup, Input, Label } from "reactstrap";
 import "./booking.css";
 
 import DateSelector from "../Components/Appointment/dateSelector";
+import AppointmentCheck from "./../Components/Appointment/appointmentCheck";
 
 import firebase from "./../firebase";
 
@@ -16,10 +17,6 @@ import firebase from "./../firebase";
  */
 
 //testing firebase
-// firebase.firestore().collection('times').add({
-//     title: 'Rubik\'s cube',
-//     time_seconds: 45
-// })
 
 //will use material ui here
 
@@ -35,7 +32,9 @@ const servicesAvailable = [
   { name: "Nail Care Services" },
 ];
 
-{/**Will be implemented later as sub drop down menus */}
+{
+  /**Will be implemented later as sub drop down menus */
+}
 // const manicureServices = [
 //   { name: "Regular", price: "16" },
 //   { name: "Manicure w/ French", price: "21" },
@@ -85,20 +84,41 @@ const createSelection = ({ name }) => {
 };
 
 const Booking = (props) => {
+  
   const defaultValues = {
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
-    comments: "",
+    // comments: "",
   };
 
   const { handleSubmit, register, reset } = useForm({ defaultValues });
   const onSubmit = (data) => console.log(data);
 
+  const [email, setEmail] = useState ('');
+  const [fname, setFname] = useState ('');
+  const [lname, setLname] = useState ('');
+  const [phone, setPhone] = useState ('');
+
   // const [data, setData] = useState(null);
 
   let [inputList, setInputList] = useState([]);
+
+  //   firebase.firestore().collection('times').add({
+  //     title: 'Rubik\'s cube',
+  //     time_seconds: 45
+  // })
+  const submitHandler = (event) => {
+    firebase.firestore().collection("customerData").add({
+      Email: email,
+      firstname: fname,
+      lastname: lname,
+      phone: phone
+
+    })
+  };
+
 
   const clickHandler = (event) => {
     setInputList(
@@ -118,9 +138,9 @@ const Booking = (props) => {
     setInputList((inputList = []));
   };
 
-  const onAlert = (event) => {
-    alert("Submit?");
-  };
+  // const onAlert = (event) => {
+  //   alert("Submit?");
+  // };
 
   return (
     <>
@@ -137,7 +157,7 @@ const Booking = (props) => {
                       <label>First Name:</label>
                     </td>
                     <td>
-                      <input name="firstname" ref={register} />
+                      <input name="firstname" ref={register} onChange={event=>setFname(event.target.value)} />
                     </td>
                   </tr>
                   <tr>
@@ -145,7 +165,7 @@ const Booking = (props) => {
                       <label>Last Name:</label>
                     </td>
                     <td>
-                      <input name="lastname" ref={register} />
+                      <input name="lastname" ref={register}  onChange={event=>setLname(event.target.value)}/>
                     </td>
                   </tr>
                   <tr>
@@ -154,7 +174,7 @@ const Booking = (props) => {
                     </td>
                     <td>
                       {" "}
-                      <input name="email" ref={register} />
+                      <input name="email" ref={register}  onChange={event=>setEmail(event.target.value)}/>
                     </td>
                   </tr>
                   <tr>
@@ -162,7 +182,7 @@ const Booking = (props) => {
                       <label>Phone Number:</label>
                     </td>
                     <td>
-                      <input name="phone" ref={register} />
+                      <input name="phone" ref={register}  onChange={event=>setPhone(event.target.value)} />
                     </td>
                   </tr>
                 </tbody>
@@ -197,12 +217,15 @@ const Booking = (props) => {
               <DateSelector />
             </section>
             <section>
-              <button className=".addBtn" type="submit" onClick={onAlert}>
+              <button className=".addBtn" type="submit" onClick={submitHandler}>
                 Submit
               </button>
             </section>
           </div>
         </form>
+      </div>
+      <div>
+        <AppointmentCheck />
       </div>
     </>
   );
