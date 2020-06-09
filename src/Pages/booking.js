@@ -97,6 +97,8 @@ const Booking = (props) => {
   const [lname, setLname] = useState("");
   const [phone, setPhone] = useState("");
   const [comments, setComments] = useState("");
+  {/**Log what services will be done to client to firebase */}
+  const [services, setServices] = useState (['']);
 
   // const [data, setData] = useState(null);
 
@@ -115,6 +117,7 @@ const Booking = (props) => {
       Comments: comments,
     });
     setModal(!modal);
+    reset();
   };
 
   const clickHandler = (event) => {
