@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f2b396a377ce4d54511d212d9a027e2e",
+    "revision": "603f86159dbf2bc00643fbe88c08006b",
     "url": "/%7Bpro-finish-nails%7D/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/%7Bpro-finish-nails%7D/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "5d9d7bbbf73fe2900def",
+    "revision": "855fb006ebd4fd2acc1d",
     "url": "/%7Bpro-finish-nails%7D/static/css/main.cc8b9bc5.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/%7Bpro-finish-nails%7D/static/js/2.f3ac4828.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5d9d7bbbf73fe2900def",
-    "url": "/%7Bpro-finish-nails%7D/static/js/main.6aaa24f4.chunk.js"
+    "revision": "855fb006ebd4fd2acc1d",
+    "url": "/%7Bpro-finish-nails%7D/static/js/main.935e4626.chunk.js"
   },
   {
     "revision": "f12b2ddf72e913e713ed",
