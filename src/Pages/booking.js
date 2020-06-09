@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
-import { Table, FormGroup, Input, Label } from "reactstrap";
+import {
+  Table,
+  FormGroup,
+  Input,
+  Label,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+} from "reactstrap";
 
 import "./booking.css";
 
@@ -65,41 +74,29 @@ const servicesAvailable = [
 //   { name: "Back", price: "40" },
 // ];
 
-// const useBooking = () => {
-//   const[costumerData, setCostumerData]=useState([]);
-//   useEffect(() => {
-//     firebase
-//       .firestore()
-//       .collection("booking")
-//       .onSnapshot((snapshot) => {
-//         debugger;
-//       });
-//   }, []);
-
-//   return consumerData;
-// }
-
 const createSelection = ({ name }) => {
   return <option>{name}</option>;
 };
 
 const Booking = (props) => {
-  
+  const [modal, setModal] = useState(false);
+
   const defaultValues = {
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
-    // comments: "",
+    comments: "",
   };
 
   const { handleSubmit, register, reset } = useForm({ defaultValues });
   const onSubmit = (data) => console.log(data);
 
-  const [email, setEmail] = useState ('');
-  const [fname, setFname] = useState ('');
-  const [lname, setLname] = useState ('');
-  const [phone, setPhone] = useState ('');
+  const [email, setEmail] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comments, setComments] = useState("");
 
   // const [data, setData] = useState(null);
 
@@ -112,13 +109,13 @@ const Booking = (props) => {
   const submitHandler = (event) => {
     firebase.firestore().collection("customerData").add({
       Email: email,
-      firstname: fname,
-      lastname: lname,
-      phone: phone
-
-    })
+      Firstname: fname,
+      Lastname: lname,
+      Phone: phone,
+      Comments: comments,
+    });
+    setModal(!modal);
   };
-
 
   const clickHandler = (event) => {
     setInputList(
@@ -157,7 +154,11 @@ const Booking = (props) => {
                       <label>First Name:</label>
                     </td>
                     <td>
-                      <input name="firstname" ref={register} onChange={event=>setFname(event.target.value)} />
+                      <input
+                        name="firstname"
+                        ref={register}
+                        onChange={(event) => setFname(event.target.value)}
+                      />
                     </td>
                   </tr>
                   <tr>
@@ -165,7 +166,11 @@ const Booking = (props) => {
                       <label>Last Name:</label>
                     </td>
                     <td>
-                      <input name="lastname" ref={register}  onChange={event=>setLname(event.target.value)}/>
+                      <input
+                        name="lastname"
+                        ref={register}
+                        onChange={(event) => setLname(event.target.value)}
+                      />
                     </td>
                   </tr>
                   <tr>
@@ -174,7 +179,11 @@ const Booking = (props) => {
                     </td>
                     <td>
                       {" "}
-                      <input name="email" ref={register}  onChange={event=>setEmail(event.target.value)}/>
+                      <input
+                        name="email"
+                        ref={register}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
                     </td>
                   </tr>
                   <tr>
@@ -182,7 +191,11 @@ const Booking = (props) => {
                       <label>Phone Number:</label>
                     </td>
                     <td>
-                      <input name="phone" ref={register}  onChange={event=>setPhone(event.target.value)} />
+                      <input
+                        name="phone"
+                        ref={register}
+                        onChange={(event) => setPhone(event.target.value)}
+                      />
                     </td>
                   </tr>
                 </tbody>
@@ -209,6 +222,7 @@ const Booking = (props) => {
                   multiline
                   variant="outlined"
                   ref={register}
+                  onChange={(event) => setComments(event.target.value)}
                 />
               </div>
             </section>
@@ -217,9 +231,15 @@ const Booking = (props) => {
               <DateSelector />
             </section>
             <section>
-              <button className=".addBtn" type="submit" onClick={submitHandler}>
+              <Button className=".addBtn" type="submit" onClick={submitHandler}>
                 Submit
-              </button>
+              </Button>
+              <Modal isOpen={modal} toggle={submitHandler}>
+                <ModalHeader toggle={submitHandler}>Confirmation Page</ModalHeader>
+                <ModalBody>
+                  Thank you for booking your appointment! Your confirmation code is ...
+                </ModalBody>
+              </Modal>
             </section>
           </div>
         </form>
