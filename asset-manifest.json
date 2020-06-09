@@ -1,31 +1,32 @@
 {
   "files": {
-    "main.css": "/%7Bpro-finish-nails%7D/static/css/main.845d37f7.chunk.css",
-    "main.js": "/%7Bpro-finish-nails%7D/static/js/main.56eacfb8.chunk.js",
-    "main.js.map": "/%7Bpro-finish-nails%7D/static/js/main.56eacfb8.chunk.js.map",
+    "main.css": "/%7Bpro-finish-nails%7D/static/css/main.cc8b9bc5.chunk.css",
+    "main.js": "/%7Bpro-finish-nails%7D/static/js/main.6aaa24f4.chunk.js",
+    "main.js.map": "/%7Bpro-finish-nails%7D/static/js/main.6aaa24f4.chunk.js.map",
     "runtime-main.js": "/%7Bpro-finish-nails%7D/static/js/runtime-main.c15c1504.js",
     "runtime-main.js.map": "/%7Bpro-finish-nails%7D/static/js/runtime-main.c15c1504.js.map",
     "static/css/2.af3c1da9.chunk.css": "/%7Bpro-finish-nails%7D/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.a8312a8c.chunk.js": "/%7Bpro-finish-nails%7D/static/js/2.a8312a8c.chunk.js",
-    "static/js/2.a8312a8c.chunk.js.map": "/%7Bpro-finish-nails%7D/static/js/2.a8312a8c.chunk.js.map",
+    "static/js/2.f3ac4828.chunk.js": "/%7Bpro-finish-nails%7D/static/js/2.f3ac4828.chunk.js",
+    "static/js/2.f3ac4828.chunk.js.map": "/%7Bpro-finish-nails%7D/static/js/2.f3ac4828.chunk.js.map",
     "index.html": "/%7Bpro-finish-nails%7D/index.html",
-    "precache-manifest.4f6aa4655c41da593bab8c7fabb0a37c.js": "/%7Bpro-finish-nails%7D/precache-manifest.4f6aa4655c41da593bab8c7fabb0a37c.js",
+    "precache-manifest.473497bc10391c7fd7e8ba17416b8dfc.js": "/%7Bpro-finish-nails%7D/precache-manifest.473497bc10391c7fd7e8ba17416b8dfc.js",
     "service-worker.js": "/%7Bpro-finish-nails%7D/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/%7Bpro-finish-nails%7D/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.845d37f7.chunk.css.map": "/%7Bpro-finish-nails%7D/static/css/main.845d37f7.chunk.css.map",
-    "static/js/2.a8312a8c.chunk.js.LICENSE.txt": "/%7Bpro-finish-nails%7D/static/js/2.a8312a8c.chunk.js.LICENSE.txt",
+    "static/css/main.cc8b9bc5.chunk.css.map": "/%7Bpro-finish-nails%7D/static/css/main.cc8b9bc5.chunk.css.map",
+    "static/js/2.f3ac4828.chunk.js.LICENSE.txt": "/%7Bpro-finish-nails%7D/static/js/2.f3ac4828.chunk.js.LICENSE.txt",
+    "static/media/NAIL SALON MENU.pdf": "/%7Bpro-finish-nails%7D/static/media/NAIL SALON MENU.a191339a.pdf",
     "static/media/exterior.jpg": "/%7Bpro-finish-nails%7D/static/media/exterior.7bfb77e7.jpg",
     "static/media/manicure.jpg": "/%7Bpro-finish-nails%7D/static/media/manicure.d14731c3.jpg",
     "static/media/nail salon interior.jpg": "/%7Bpro-finish-nails%7D/static/media/nail salon interior.96012c5a.jpg",
     "static/media/safety.jpg": "/%7Bpro-finish-nails%7D/static/media/safety.e9dc9f3e.jpg",
     "static/media/united states.png": "/%7Bpro-finish-nails%7D/static/media/united states.c7e30ebc.png",
-    "static/media/world clipart.jpg": "/%7Bpro-finish-nails%7D/static/media/world clipart.dcb3bbe2.jpg"
+    "static/media/world clipart.jpg": "/%7Bpro-finish-nails%7D/static/media/world clipart.85104dfc.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c15c1504.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.a8312a8c.chunk.js",
-    "static/css/main.845d37f7.chunk.css",
-    "static/js/main.56eacfb8.chunk.js"
+    "static/js/2.f3ac4828.chunk.js",
+    "static/css/main.cc8b9bc5.chunk.css",
+    "static/js/main.6aaa24f4.chunk.js"
   ]
 }

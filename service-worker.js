@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/%7Bpro-finish-nails%7D/precache-manifest.4f6aa4655c41da593bab8c7fabb0a37c.js"
+  "/%7Bpro-finish-nails%7D/precache-manifest.473497bc10391c7fd7e8ba17416b8dfc.js"
 );
 
 self.addEventListener('message', (event) => {
