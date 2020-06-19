@@ -5,9 +5,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
-  Button
+  NavItem
+  
 } from "reactstrap";
 
 import { Link } from 'react-router-dom';
@@ -39,6 +38,7 @@ const NavHeader = (props) => {
           <NavbarBrand href="/home" className = 'link-custom'>Pro Finish Nails</NavbarBrand>
           {/* <NavItem className="modal"><Button color = "primary">Log In</Button></NavItem> */}
           <NavbarToggler onClick={toggleNavbar} />
+          
           <Collapse isOpen={!collapsed} className="drop-color" navbar>
             <Nav navbar>{links.map(createNavItem)}</Nav>
           </Collapse>

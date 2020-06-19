@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Navbar, NavbarBrand, NavItem, Nav, Table } from "reactstrap";
 
 import "./footer.css";
+import Login from '../Login/login';
 
 /**TODO:
  *
@@ -36,7 +37,7 @@ const Footer = (props) => {
     <>
       <div>
         <Navbar color="light" light relative="bottom" expand="md">
-          <NavbarBrand href="/home"> Pro Finish Nails </NavbarBrand>
+          <NavbarBrand href="/home"> Pro Finish Nails <Login/> </NavbarBrand>
           <Nav navbar>
             <NavItem>
               <div className="spacing">
@@ -68,6 +69,7 @@ const Footer = (props) => {
                 </Table>
               </div>
             </NavItem>
+            
           </Nav>
         </Navbar>
       </div>

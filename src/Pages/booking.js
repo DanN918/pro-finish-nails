@@ -74,6 +74,10 @@ const servicesAvailable = [
 //   { name: "Back", price: "40" },
 // ];
 
+const randNum = () => {
+  return Math.floor(Math.random()*100) + Math.random().toString(36).substring(2, 8);
+}
+
 const createSelection = ({ name }) => {
   return <option>{name}</option>;
 };
@@ -97,6 +101,7 @@ const Booking = (props) => {
   const [lname, setLname] = useState("");
   const [phone, setPhone] = useState("");
   const [comments, setComments] = useState("");
+  const [confirmation, setConfirmation] = useState('');
   {/**Log what services will be done to client to firebase */}
   const [services, setServices] = useState (['']);
 
@@ -115,17 +120,21 @@ const Booking = (props) => {
       Lastname: lname,
       Phone: phone,
       Comments: comments,
+      Services: services,
+      confirmation: confirmation
     });
     setModal(!modal);
     reset();
+    setConfirmation(randNum);
   };
 
+  {/**Should be able to log multiple services into firebase */}
   const clickHandler = (event) => {
     setInputList(
       inputList.concat(
         <div>
           <FormGroup>
-            <Input type="select" name="select" id="exampleSelect">
+            <Input type="select" name="select" id="exampleSelect" onChange={(event) => setServices(event.target.value)} >
               {servicesAvailable.map(createSelection)}
             </Input>
           </FormGroup>
@@ -240,7 +249,7 @@ const Booking = (props) => {
               <Modal isOpen={modal} toggle={submitHandler}>
                 <ModalHeader toggle={submitHandler}>Confirmation Page</ModalHeader>
                 <ModalBody>
-                  Thank you for booking your appointment! Your confirmation code is ...
+                  Thank you for booking your appointment! Your confirmation code is {confirmation}
                 </ModalBody>
               </Modal>
             </section>
